@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Remag</string>
+    <string name="notification_channel"></string>
 </resources>
