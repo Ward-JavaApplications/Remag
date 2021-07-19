@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         notificationChannelID = getString(R.string.notification_channel);
         notificationChannelID = "markelChannel";
 
-        Intent intent = new Intent(this, TestActivity.class);
+        Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);
 
     }

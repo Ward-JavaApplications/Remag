@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".tests.TestActivity"></activity>
+        <activity android:name=".MainMenuActivity"></activity>
+        <activity android:name=".AddReminderActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Remag</string>
     <string name="notification_channel"></string>
+    <string name="name_new_reminder"></string>
+    <string name="monday_abbreviation">Mo</string>
+    <string name="tuesday_abbreviation">Tu</string>
+    <string name="wednesday_abbreviation">We</string>
+    <string name="thursday_abbreviation">Th</string>
+    <string name="friday_abbreviation">Fr</string>
+    <string name="saturday_abbreviation">Sa</string>
+    <string name="sunday_abbreviation">Su</string>
+    <string-array name="spinnerSelector">
+        <item>Custom days of the week</item>
+        <item>Every x days</item>
+    </string-array>
+    <string name="every_x_days_string"></string>
 </resources>
