@@ -40,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Name Reminder"
         android:inputType="textPersonName"
         android:text="@string/name_new_reminder"
         android:textColor="@color/red_main_buttons"
@@ -87,20 +88,16 @@
 
     </ViewFlipper>
 
-    <ScrollView
-        android:layout_width="409dp"
-        android:layout_height="233dp"
-        android:layout_marginTop="1dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_times"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonViewFlipper">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/buttonViewFlipper"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
