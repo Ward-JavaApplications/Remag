@@ -24,6 +24,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/toggle_button_checked"
+        android:onClick="returnToMainMenu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.044"
@@ -31,8 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.052"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24"
-        app:tint="@color/black"
-        />
+        app:tint="@color/black" />
 
 
     <EditText
@@ -112,6 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:onClick="addReminder"
         android:text="Add Time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.947"
@@ -122,6 +123,7 @@
         android:id="@+id/button_save_reminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="saveReminder"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

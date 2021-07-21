@@ -1,5 +1,6 @@
 package wardsmets.remag;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -37,13 +38,32 @@ public class AddReminderActivity extends AppCompatActivity{
 
             //recycleView
             RecyclerView recyclerView = findViewById(R.id.recycler_view_time_of_day);
-            String[] times = {"18:00","20:00","06:00","markel","j;lkaesf","akls;fjd",";afjlkds","qweoriu"};
+            String[] times = {"18:00", "20:00", "06:00", "markel", "j;lkaesf", "akls;fjd", ";afjlkds", "qweoriu"};
             MyRecycleViewAdapter adapter = new MyRecycleViewAdapter(times, getApplicationContext());
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    public void returnToMainMenu(View view){
+//        Intent intent = new Intent(this,MainMenuActivity.class);
+//        startActivity(intent);
+        PreferenceManager p = new PreferenceManager(getApplicationContext());
+        p.updateReminders(new ReminderContainer(new String[]{"jorik", "gunter"}, "hollanders"));
+        p.printTest();
+    }
+    public void saveReminder(View view){
+//        returnToMainMenu(view);
+        PreferenceManager p = new PreferenceManager(getApplicationContext());
+        p.updateReminders(new ReminderContainer(new String[]{"Warden","stien","bram"},"niffo's"));
+        p.printTest();
+
+    }
+    public void addReminder(View view){
+        new PreferenceManager(getApplicationContext());
+
+    }
+
 }
