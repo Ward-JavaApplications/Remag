@@ -5,13 +5,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
+import wardsmets.remag.ReminderContainers.ReminderContainer;
+import wardsmets.remag.Views.MyRecycleViewAdapter;
+import wardsmets.remag.Views.MyViewFlipper;
+
 public class AddReminderActivity extends AppCompatActivity{
 
+    private String reminderName = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +46,7 @@ public class AddReminderActivity extends AppCompatActivity{
 
             //recycleView
             RecyclerView recyclerView = findViewById(R.id.recycler_view_time_of_day);
-            String[] times = {"18:00", "20:00", "06:00", "markel", "j;lkaesf", "akls;fjd", ";afjlkds", "qweoriu"};
+            String[] times = getTimes();
             MyRecycleViewAdapter adapter = new MyRecycleViewAdapter(times, getApplicationContext());
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -46,23 +54,32 @@ public class AddReminderActivity extends AppCompatActivity{
             e.printStackTrace();
         }
     }
+    private String[] getTimes(String reminderName){
+        ArrayList<ReminderContainer> reminders =  MainActivity.preferenceManager.getReminderContainerArrayList();
+        for(ReminderContainer container: reminders){
+            if(container.getReminderName().equals(reminderName)) return container.getTimes();
+        }
+        Toast.makeText(getApplicationContext(),"no times set yet",Toast.LENGTH_SHORT).show();
+        return new String[0];
+    }
+    private String[] getTimes(){
+        return new String[0];
+    }
 
     public void returnToMainMenu(View view){
-//        Intent intent = new Intent(this,MainMenuActivity.class);
-//        startActivity(intent);
-        PreferenceManager p = new PreferenceManager(getApplicationContext());
-        p.updateReminders(new ReminderContainer(new String[]{"jorik", "gunter"}, "hollanders"));
-        p.printTest();
+        Intent intent = new Intent(this,MainMenuActivity.class);
+        startActivity(intent);
+
     }
     public void saveReminder(View view){
-//        returnToMainMenu(view);
-        PreferenceManager p = new PreferenceManager(getApplicationContext());
-        p.updateReminders(new ReminderContainer(new String[]{"Warden","stien","bram"},"niffo's"));
-        p.printTest();
+
+        returnToMainMenu(view);
+
+
 
     }
     public void addReminder(View view){
-        new PreferenceManager(getApplicationContext());
+
 
     }
 

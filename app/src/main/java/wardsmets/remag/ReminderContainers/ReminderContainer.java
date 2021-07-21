@@ -1,4 +1,4 @@
-package wardsmets.remag;
+package wardsmets.remag.ReminderContainers;
 
 import android.util.Log;
 
@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ReminderContainer {
-    private String[] times;
-    private String reminderName;
+    public String[] times;
+    public String reminderName;
     //own sound
 
 

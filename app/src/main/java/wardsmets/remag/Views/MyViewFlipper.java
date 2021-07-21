@@ -1,11 +1,11 @@
-package wardsmets.remag;
+package wardsmets.remag.Views;
 
 import android.widget.ViewFlipper;
 
 public class MyViewFlipper {
     ViewFlipper viewFlipper;
     int currentView = 0;
-    MyViewFlipper(ViewFlipper viewFlipper){
+    public MyViewFlipper(ViewFlipper viewFlipper){
         this.viewFlipper = viewFlipper;
         currentView = 0;
     }

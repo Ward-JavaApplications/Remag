@@ -12,6 +12,7 @@ import wardsmets.remag.tests.TestActivity;
 
 public class MainActivity extends AppCompatActivity {
     private static String notificationChannelID;
+    public static PreferenceManager preferenceManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         notificationChannelID = getString(R.string.notification_channel);
         notificationChannelID = "markelChannel";
+
+        preferenceManager = new PreferenceManager(getApplicationContext());
 
         Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);

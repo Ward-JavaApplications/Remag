@@ -88,7 +88,7 @@
 
     <include
         android:id="@+id/recycler_view"
-        layout="@layout/add_reminder_recycle_view"
+        layout="@layout/recycle_view"
         android:layout_width="match_parent"
         android:layout_height="157dp"
         app:layout_constraintEnd_toEndOf="parent"

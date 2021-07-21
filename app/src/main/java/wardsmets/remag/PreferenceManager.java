@@ -8,6 +8,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Map;
 
+import wardsmets.remag.ReminderContainers.ReminderContainer;
+
 /**
  * Preference manager to manage the list of dates when we want to be reminded
  */
@@ -32,7 +34,6 @@ public class PreferenceManager {
 
     public void printTest(){
 
-        updateReminders(new ReminderContainer(new String[]{"Gofbangs","FireHazard","Bee","RLCS"},"shows"));
         fetchPreference();
         StringBuilder builder = new StringBuilder();
         for(ReminderContainer container: reminderContainerArrayList){
@@ -102,5 +103,9 @@ public class PreferenceManager {
             }
             syncReminders(new ReminderContainer(reminders, arrayName));
         }
+    }
+    public ArrayList<ReminderContainer> getReminderContainerArrayList(){
+        fetchPreference();
+        return reminderContainerArrayList;
     }
 }
