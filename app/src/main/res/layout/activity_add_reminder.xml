@@ -53,7 +53,7 @@
         tools:text="Name Reminder" />
 
     <Spinner
-        android:id="@+id/textView_frequency"
+        android:id="@+id/spinner_frequency"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:entries="@array/spinnerSelector"
@@ -70,12 +70,10 @@
 
         android:id="@+id/buttonViewFlipper"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_frequency"
-        app:layout_constraintVertical_bias="0.1">
+        app:layout_constraintTop_toBottomOf="@+id/spinner_frequency">
 
 
         <include
@@ -88,16 +86,49 @@
 
     </ViewFlipper>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_times"
+    <include
+        android:id="@+id/recycler_view"
+        layout="@layout/add_reminder_recycle_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="157dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonViewFlipper"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="At what time do you want to have a reminder?"
+        android:textColor="@color/red_main_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonViewFlipper" />
+
+    <Button
+        android:id="@+id/button_add_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Add Time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view" />
+
+    <Button
+        android:id="@+id/button_save_reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_add_time"
+        app:layout_constraintVertical_bias="0.205" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
