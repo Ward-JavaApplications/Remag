@@ -14,12 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import wardsmets.remag.ReminderContainers.ReminderContainer;
-import wardsmets.remag.Views.MyRecycleViewAdapter;
+import wardsmets.remag.Views.MyRecycleViewAdapterAddReminder;
 import wardsmets.remag.Views.MyViewFlipper;
 
 public class AddReminderActivity extends AppCompatActivity{
 
-    private String reminderName = null;
+    private String reminderName = "niffo's";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class AddReminderActivity extends AppCompatActivity{
             //recycleView
             RecyclerView recyclerView = findViewById(R.id.recycler_view_time_of_day);
             String[] times = getTimes();
-            MyRecycleViewAdapter adapter = new MyRecycleViewAdapter(times, getApplicationContext());
+            MyRecycleViewAdapterAddReminder adapter = new MyRecycleViewAdapterAddReminder(times, getApplicationContext());
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         } catch (Exception e) {

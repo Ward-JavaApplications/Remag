@@ -10,12 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import wardsmets.remag.R;
 
-public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdapter.MyViewHolder> {
+public class MyRecycleViewAdapterAddReminder extends RecyclerView.Adapter<MyRecycleViewAdapterAddReminder.MyViewHolder> {
 
     String[] times;
     Context context;
 
-    public MyRecycleViewAdapter(String[] times, Context context) {
+    public MyRecycleViewAdapterAddReminder(String[] times, Context context) {
         this.times = times;
         this.context = context;
     }
@@ -28,7 +28,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
     }
 
     @Override
-    public void onBindViewHolder(MyRecycleViewAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyRecycleViewAdapterAddReminder.MyViewHolder holder, int position) {
         holder.editText.setText(times[position]);
     }
 
