@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 
 import wardsmets.remag.ReminderContainers.ReminderContainer;
@@ -51,6 +52,18 @@ public class PreferenceManager {
         pushPreferences();
     }
 
+    public void deleteReminder(String name){
+        Iterator<ReminderContainer> iterator = reminderContainerArrayList.iterator();
+        while(iterator.hasNext()){
+            ReminderContainer currentContainer = iterator.next();
+            if(currentContainer.getReminderName().equals(name)) reminderContainerArrayList.remove(currentContainer);
+        }
+        pushPreferences();
+    }
+    public void deleteReminder(int position){
+        reminderContainerArrayList.remove(position);
+        pushPreferences();
+    }
 
 
     public void syncReminders(ReminderContainer container){
@@ -75,9 +88,14 @@ public class PreferenceManager {
             e.printStackTrace();
         }
     }
+    public void clearPreferences(SharedPreferences pref){
+        pref.edit().clear().commit();
+    }
     public void pushPreferences(){
         SharedPreferences preferences = context.getSharedPreferences(preferenceValues,preferenceMode);
         SharedPreferences preferencesNames = context.getSharedPreferences(preferenceNames,preferenceMode);
+        clearPreferences(preferences);
+        clearPreferences(preferencesNames);
         for(ReminderContainer container:reminderContainerArrayList){
             SharedPreferences.Editor editor = preferences.edit();
             for(int i = 0;i<container.getTimesSize();i++){

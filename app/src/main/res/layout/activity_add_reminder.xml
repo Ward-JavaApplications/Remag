@@ -36,7 +36,7 @@
 
 
     <EditText
-        android:id="@+id/editText_reminderName"
+        android:id="@+id/editText_add_reminder_menu_reminderName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -63,7 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.621"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_reminderName"
+        app:layout_constraintTop_toBottomOf="@+id/editText_add_reminder_menu_reminderName"
         app:layout_constraintVertical_bias="0.044" />
 
     <ViewFlipper
@@ -112,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:onClick="addReminder"
+        android:onClick="addTime"
         android:text="Add Time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.947"

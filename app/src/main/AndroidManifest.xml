@@ -19,6 +19,8 @@
         <activity android:name=".tests.TestActivity"></activity>
         <activity android:name=".MainMenuActivity"></activity>
         <activity android:name=".AddReminderActivity"></activity>
+        <activity android:name=".ReminderSettingsActivity"></activity>
+        <activity android:name=".OpenReminderActivity"></activity>
     </application>
 
 </manifest>

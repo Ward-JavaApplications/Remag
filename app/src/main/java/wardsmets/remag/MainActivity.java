@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import wardsmets.remag.ReminderContainers.ReminderContainer;
 import wardsmets.remag.tests.TestActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         notificationChannelID = "markelChannel";
 
         preferenceManager = new PreferenceManager(getApplicationContext());
+        //efkes voor debuggin
+        preferenceManager.updateReminders(new ReminderContainer(new String[]{"NOu", "Seg", "kaas"}, "de hollanders"));
 
         Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);

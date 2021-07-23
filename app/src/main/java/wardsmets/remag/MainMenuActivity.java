@@ -2,7 +2,9 @@ package wardsmets.remag;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 
 import wardsmets.remag.ReminderContainers.ReminderContainer;
 import wardsmets.remag.Views.MyRecycleViewAdapterAddReminder;
+import wardsmets.remag.Views.MyRecycleViewAdapterReminders;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -25,7 +28,16 @@ public class MainMenuActivity extends AppCompatActivity {
     public void loadAddReminder(View view){
         Intent intent = new Intent(this,AddReminderActivity.class);
         startActivity(intent);
+        finish();
     }
+
+    public void reloadView(){
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
+
 
     private void loadReminders(){
         try {
@@ -38,7 +50,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
             //RecyclerView
             RecyclerView recyclerView = findViewById(R.id.recycler_view_time_of_day);
-            MyRecycleViewAdapterAddReminder adapter = new MyRecycleViewAdapterAddReminder(namesArray, getApplicationContext());
+            MyRecycleViewAdapterReminders adapter = new MyRecycleViewAdapterReminders(namesArray, getApplicationContext(),this);
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         }
