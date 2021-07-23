@@ -7,8 +7,12 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 
+import wardsmets.remag.ReminderContainers.CustomDayReminderContainer;
 import wardsmets.remag.ReminderContainers.ReminderContainer;
+import wardsmets.remag.ReminderContainers.XDaysReminderContainer;
 import wardsmets.remag.tests.TestActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,12 +29,23 @@ public class MainActivity extends AppCompatActivity {
 
         preferenceManager = new PreferenceManager(getApplicationContext());
         //efkes voor debuggin
-        preferenceManager.updateReminders(new ReminderContainer(new String[]{"NOu", "Seg", "kaas"}, "de hollanders"));
+        preferenceManager.updateReminders(new XDaysReminderContainer(new String[]{"12:56", "11:00", "08:00"}, "de hollanders",3));
 
-        Intent intent = new Intent(this, MainMenuActivity.class);
-        startActivity(intent);
+        final Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadNextActivity();
+            }
+        },1000);
+
 
     }
+    private void loadNextActivity(){
+        Intent intent = new Intent(this, MainMenuActivity.class);
+        startActivity(intent);
+    }
+
 
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because

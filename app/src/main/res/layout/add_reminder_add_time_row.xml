@@ -18,7 +18,7 @@
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editText_selectTime"
+                android:id="@+id/editText_add_reminder_add_time_row_editTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -40,7 +40,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.65"
-                app:layout_constraintStart_toEndOf="@+id/editText_selectTime"
+                app:layout_constraintStart_toEndOf="@+id/editText_add_reminder_add_time_row_editTime"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 

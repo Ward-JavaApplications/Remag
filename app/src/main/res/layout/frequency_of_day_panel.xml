@@ -14,6 +14,7 @@
         android:hint="every x days"
         android:inputType="number"
         android:text="@string/every_x_days_string"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

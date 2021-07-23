@@ -7,6 +7,8 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import wardsmets.remag.AddReminderActivity;
+
 public class ReminderContainer {
     public String[] times;
     public String reminderName;
@@ -38,5 +40,21 @@ public class ReminderContainer {
 
     public String[] getTimes() {
         return times;
+    }
+
+    /**
+     * @return 0 if superclass, 1 if XDaysReminders, 2 if CustomDayReminder
+     */
+    public int getTypeOfContainer(){
+        return 0;
+    }
+    /**
+     * @return 0 if custom days, return 1 if xdays in between
+     */
+    public int setSpinnerPosition(){
+        return 0;
+    }
+    public void setReminderViewFlipperContent(AddReminderActivity parent){
+
     }
 }
