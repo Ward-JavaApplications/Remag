@@ -43,7 +43,7 @@ public class ReminderContainer {
     }
 
     /**
-     * @return 0 if superclass, 1 if XDaysReminders, 2 if CustomDayReminder
+     * @return 0 if superclass, 1 if XDaysReminders, 0 if CustomDayReminder
      */
     public int getTypeOfContainer(){
         return 0;

@@ -21,6 +21,13 @@
         <activity android:name=".AddReminderActivity"></activity>
         <activity android:name=".ReminderSettingsActivity"></activity>
         <activity android:name=".OpenReminderActivity"></activity>
+        <receiver android:name=".Notifications.MyReceiver"
+            android:enabled="true"
+            android:exported="false"></receiver>
+        <service android:name=".Notifications.MyNewIntentService"
+            android:exported="false"></service>
+
+
     </application>
 
 </manifest>

@@ -18,6 +18,7 @@ import wardsmets.remag.tests.TestActivity;
 public class MainActivity extends AppCompatActivity {
     private static String notificationChannelID;
     public static PreferenceManager preferenceManager;
+    public static int requestCodeAlarmManager = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

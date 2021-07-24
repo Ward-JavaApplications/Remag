@@ -1,5 +1,9 @@
 package wardsmets.remag;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,8 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
+import wardsmets.remag.Notifications.MyReceiver;
 import wardsmets.remag.ReminderContainers.ReminderContainer;
 import wardsmets.remag.Views.MyRecycleViewAdapterAddReminder;
 import wardsmets.remag.Views.MyRecycleViewAdapterReminders;
@@ -23,6 +30,7 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         loadReminders();
+        calculateNextReminder();
     }
 
     public void loadAddReminder(View view){
@@ -35,6 +43,28 @@ public class MainMenuActivity extends AppCompatActivity {
         Intent intent = getIntent();
         finish();
         startActivity(intent);
+    }
+
+    public void calculateNextReminder(){
+        try {
+            for(ReminderContainer container:MainActivity.preferenceManager.getReminderContainerArrayList()){
+                Intent notifyIntent = new Intent(this, MyReceiver.class);
+                notifyIntent.putExtra("title",container.getReminderName());
+                if(container.getTypeOfContainer() == 0){
+                    //CustomDayReminder
+
+                }
+                else if(container.getTypeOfContainer() == 1){
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                            getApplicationContext(), MainActivity.requestCodeAlarmManager, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    AlarmManager alarmManager = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+                    alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, (new SimpleDateFormat("hh:mm").parse(container.times[0])).getTime(),AlarmManager.INTERVAL_DAY,pendingIntent);
+                }
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
