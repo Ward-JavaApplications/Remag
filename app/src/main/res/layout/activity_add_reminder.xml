@@ -37,13 +37,14 @@
 
     <EditText
         android:id="@+id/editText_add_reminder_menu_reminderName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="308dp"
+        android:layout_height="66dp"
         android:ems="10"
         android:hint="Name Reminder"
         android:inputType="textPersonName"
         android:text="@string/name_new_reminder"
         android:textColor="@color/red_main_buttons"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
