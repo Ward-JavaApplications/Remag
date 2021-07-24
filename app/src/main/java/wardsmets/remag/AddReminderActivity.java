@@ -135,10 +135,6 @@ public class AddReminderActivity extends AppCompatActivity{
     public void saveReminder(View view){
         try {
             String[] timesFromAdapter = getTextViewsFromAdapter();
-            System.out.println("Bruur dees krijgen we van de adapter terug");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                Arrays.stream(timesFromAdapter).forEach(System.out::println);
-            }
             if (checkIfTimesCorrect(timesFromAdapter)) {
                 int positionSpinner = spinnerSelector.getSelectedItemPosition();
                 ReminderContainer container;

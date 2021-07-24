@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
         notificationChannelID = "markelChannel";
 
         preferenceManager = new PreferenceManager(getApplicationContext());
-        //efkes voor debuggin
-        preferenceManager.updateReminders(new XDaysReminderContainer(new String[]{"12:56", "11:00", "08:00"}, "de hollanders",3));
 
         final Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(new Runnable() {

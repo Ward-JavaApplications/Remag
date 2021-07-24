@@ -47,7 +47,7 @@ public class TestActivity extends AppCompatActivity {
 
     public void OnButtonClick(View view){
         try {
-            System.out.println("button clicked");
+            //System.out.println("button clicked");
             Toast.makeText(context, "Button clicked", Toast.LENGTH_SHORT).show();
             buildNotification();
 

@@ -36,19 +36,19 @@ public class PreferenceManager {
 
     }
 
-    public void printTest(){
-
-        fetchPreference();
-        StringBuilder builder = new StringBuilder();
-        for(ReminderContainer container: reminderContainerArrayList){
-            for(String time: container.getTimes()){
-                Log.v("markel", time);
-                builder.append(time);
-            }
-        }
-        String s = builder.toString();
-        Toast.makeText(context,s,Toast.LENGTH_SHORT).show();
-    }
+//    public void printTest(){
+//
+//        fetchPreference();
+//        StringBuilder builder = new StringBuilder();
+//        for(ReminderContainer container: reminderContainerArrayList){
+//            for(String time: container.getTimes()){
+//                Log.v("markel", time);
+//                builder.append(time);
+//            }
+//        }
+//        String s = builder.toString();
+//        Toast.makeText(context,s,Toast.LENGTH_SHORT).show();
+//    }
 
     public void updateReminders(ReminderContainer container){
         if(container == null) return;
@@ -96,7 +96,7 @@ public class PreferenceManager {
         pref.edit().clear().commit();
     }
     public void pushPreferences(){
-        Log.v("markel", "pushing");
+        //Log.v("markel", "pushing");
         SharedPreferences preferences = context.getSharedPreferences(preferenceValues,preferenceMode);
         SharedPreferences preferencesNames = context.getSharedPreferences(preferenceNames,preferenceMode);
         SharedPreferences preferencesTypes = context.getSharedPreferences(preferenceTypes,preferenceMode);
@@ -107,7 +107,7 @@ public class PreferenceManager {
             SharedPreferences.Editor editor = preferences.edit();
             for(int i = 0;i<container.getTimesSize();i++){
                 editor.putString(container.getReminderName()+"_"+i,container.getTimes()[i]);
-                Log.v("markel", container.getReminderName()+"_"+i + " and this is the value " + container.getTimes()[i]);
+                //Log.v("markel", container.getReminderName()+"_"+i + " and this is the value " + container.getTimes()[i]);
             }
             editor.commit();
             SharedPreferences.Editor editorName = preferencesNames.edit();
@@ -116,12 +116,12 @@ public class PreferenceManager {
             SharedPreferences.Editor editorTypes = preferencesTypes.edit();
             if(container.getTypeOfContainer() == 1){
                 editorTypes.putInt(container.getReminderName() + "_1",((XDaysReminderContainer)container).getEveryXdays());
-                Log.v("markel",container.getReminderName() + "_1 and we want a reminder every " +  String.valueOf(((XDaysReminderContainer)container).getEveryXdays()) + " days");
+                //Log.v("markel",container.getReminderName() + "_1 and we want a reminder every " +  String.valueOf(((XDaysReminderContainer)container).getEveryXdays()) + " days");
                 editorTypes.commit();
             }
             else if(container.getTypeOfContainer() == 0){
                 editorTypes.putString(container.getReminderName() + "_2",((CustomDayReminderContainer)container).getDays());
-                Log.v("markel", container.getReminderName() + "_2 with as custom days: " + ((CustomDayReminderContainer)container).getDays());
+                //Log.v("markel", container.getReminderName() + "_2 with as custom days: " + ((CustomDayReminderContainer)container).getDays());
                 editorTypes.commit();
             }
         }
@@ -141,23 +141,23 @@ public class PreferenceManager {
                 String[] reminders = new String[arrayLength];
                 for (int i = 0; i < arrayLength; i++) {
                     reminders[i] = preferencesDates.getString(arrayName + "_" + i, "");
-                    Log.v("markel", "this is one of the times " + reminders[i]);
+                    //Log.v("markel", "this is one of the times " + reminders[i]);
                 }
                 for (Map.Entry<String, ?> entryType : mapTypes.entrySet()) {
                     String arrayNameType = entryType.getKey().substring(0, entryType.getKey().length() - 2);
-                    Log.v("markel", arrayNameType + " this is the arrayNameType");
+                    //Log.v("markel", arrayNameType + " this is the arrayNameType");
                     String type = entryType.getKey().substring(entryType.getKey().length()-1,entryType.getKey().length());
-                    Log.v("markel", " this is the type " + type);
+                    //Log.v("markel", " this is the type " + type);
                     int typeInt = Integer.parseInt(type);
                     if (arrayName.equals(arrayNameType)) {
                         if(typeInt == 1){
                             int daysInBetween = preferencesTypes.getInt(entryType.getKey(), 0);
-                            Log.v("markel", "These are the days in between " + String.valueOf(daysInBetween));
+                            //Log.v("markel", "These are the days in between " + String.valueOf(daysInBetween));
                             syncReminders(new XDaysReminderContainer(reminders,arrayName,daysInBetween));
                         }
                         else if(typeInt == 2){
                             String customDays = preferencesTypes.getString(entryType.getKey(), "");
-                            Log.v("markel", "These are the the customdays " + customDays);
+                            //Log.v("markel", "These are the the customdays " + customDays);
                             syncReminders(new CustomDayReminderContainer(reminders,arrayName,customDays));
                         }
                     }
