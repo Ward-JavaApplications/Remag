@@ -20,6 +20,7 @@ import java.util.Date;
 
 import wardsmets.remag.Notifications.MyReceiver;
 import wardsmets.remag.ReminderContainers.ReminderContainer;
+import wardsmets.remag.ReminderContainers.XDaysReminderContainer;
 import wardsmets.remag.Views.MyRecycleViewAdapterAddReminder;
 import wardsmets.remag.Views.MyRecycleViewAdapterReminders;
 
@@ -58,7 +59,12 @@ public class MainMenuActivity extends AppCompatActivity {
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(
                             getApplicationContext(), MainActivity.requestCodeAlarmManager, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
                     AlarmManager alarmManager = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
-                    alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, (new SimpleDateFormat("hh:mm").parse(container.times[0])).getTime(),AlarmManager.INTERVAL_DAY,pendingIntent);
+                    Date date = new Date(System.currentTimeMillis());
+                    date.setHours(Integer.parseInt(container.getTimes()[0].substring(0,2)));
+                    date.setMinutes(Integer.parseInt(container.getTimes()[0].substring(3,5)));
+                    date.setSeconds(0);
+                    alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, date.getTime(),AlarmManager.INTERVAL_DAY*((XDaysReminderContainer)container).getEveryXdays(),pendingIntent);
+                    Log.v("markel",date.toString());
                 }
             }
         }
