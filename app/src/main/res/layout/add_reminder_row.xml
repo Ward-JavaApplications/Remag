@@ -44,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:text="TextView"
                 android:textColor="@color/red_main_buttons"
+                android:textSize="30sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/imageButton_deleteReminder"
                 app:layout_constraintStart_toStartOf="parent"
