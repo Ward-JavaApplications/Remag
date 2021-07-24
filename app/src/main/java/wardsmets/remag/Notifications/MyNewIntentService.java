@@ -27,7 +27,8 @@ public class MyNewIntentService extends IntentService {
                 .setSmallIcon(R.drawable.logo_edited)
                 .setContentTitle("Remag")
                 .setContentText(notificationTitle)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                .setSound(null)
+                .setPriority(NotificationCompat.PRIORITY_LOW);
         Intent notifyIntent = new Intent(this, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 2, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         //to be able to launch your activity from the notification
