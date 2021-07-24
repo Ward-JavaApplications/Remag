@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         notificationChannelID = getString(R.string.notification_channel);
         notificationChannelID = "markelChannel";
 
+        createNotificationChannel();
+
         preferenceManager = new PreferenceManager(getApplicationContext());
 
         final Handler handler = new Handler(Looper.getMainLooper());

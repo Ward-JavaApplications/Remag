@@ -23,6 +23,7 @@ import wardsmets.remag.ReminderContainers.ReminderContainer;
 import wardsmets.remag.ReminderContainers.XDaysReminderContainer;
 import wardsmets.remag.Views.MyRecycleViewAdapterAddReminder;
 import wardsmets.remag.Views.MyRecycleViewAdapterReminders;
+import wardsmets.remag.tests.TestActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -94,7 +95,10 @@ public class MainMenuActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
+    }
+    public void settingsClicked(View view){
+        Intent intent = new Intent(this, TestActivity.class);
+        startActivity(intent);
     }
 
 
